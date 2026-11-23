@@ -1,0 +1,46 @@
+# Per-user configuration, credentials and generated signing identities
+config.local.json
+*.local.json
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+auth.json
+credentials.json
+
+# Dependencies and compiled outputs
+.venv/
+.cache/
+__pycache__/
+*.py[cod]
+*.class
+*.jar
+*.apk
+*.aab
+*.dex
+**/build/
+**/.build/
+**/build-stock-baseline/
+**/test-signers/
+androidworld-integration/upstream/
+
+# Local experiment data must not be published by accident
+**/batches/
+**/runs/
+**/evidence/
+**/generated/
+**/stock-baseline-runs/
+artifacts/
+dist/
+*.log
+.pytest_cache/
+.coverage
+.validation-tmp/
+.idea/
+.vscode/
+.DS_Store
