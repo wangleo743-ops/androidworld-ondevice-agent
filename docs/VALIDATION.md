@@ -1,5 +1,9 @@
 # 本次源码整理的验证记录
 
+## 2026-11-27：GitHub 源码发布与自动检查
+
+79 个源码和文档文件已按原目录发布到 GitHub，替换仓库根目录的源码 ZIP，原提交历史保留。首次云端检查在 SDK 安装阶段遇到上游已移除的旧 `tools` 包；工作流现显式安装 `platform-tools`，随后安装 API 35 和 Build Tools 35.0.0。实际检查结果见 [GitHub Actions](https://github.com/wangleo743-ops/androidworld-ondevice-agent/actions/workflows/check.yml)。此工作流只做源码检查、离线测试和构建，不调用真实模型或运行模拟器任务。
+
 ## 2026-11-26：源码目录发布复核
 
 本次以 GitHub `6acc5e3` 提交中的源码 ZIP 为依据，核对 Git blob 与清单内 79 个文件的 SHA-256 后，展开为可直接维护的仓库目录。Agent、Control 和模型调用逻辑保留，更新源码获取与维护说明，修复重新打包时重复包含旧文件清单的问题。
