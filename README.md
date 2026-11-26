@@ -2,7 +2,9 @@
 
 让 **Computer Use Agent 和 Computer Control 运行在 Android 内**，通过外部模型 API 决定操作，再用 AndroidWorld 官方任务检查是否完成。
 
-这个仓库提供独立运行所需的源码、构建与部署入口、配置示例和结果报告工具。第一次使用需要安装依赖、准备专用安卓模拟器并填写自己的模型配置；之后可以用一条命令顺序运行四项任务。
+这个仓库按正常源码目录维护，提供运行所需的源码、构建与部署入口、配置示例和结果报告工具。第一次使用需要安装依赖、准备专用安卓模拟器并填写自己的模型配置；之后可以用一条命令顺序运行四项任务。
+
+源码和文档可以直接在 GitHub 上阅读、修改并比较版本。下载内容是源码，需要按下面的步骤配置和构建；旧版上传的源码压缩包保留在 Git 提交历史中。
 
 ## 能做什么
 
@@ -46,11 +48,15 @@ flowchart LR
 
 推荐在 Linux 或 WSL 的同一个环境中运行 Python、ADB 和模拟器。需要 Python 3.11、JDK 17、Android SDK 和支持截图输入的 Responses API 模型。Android SDK 组件与完整操作步骤见 [安装说明](docs/SETUP.md)。
 
-下载或克隆仓库，进入仓库目录后：
+克隆仓库并进入项目目录：
 
 ```bash
+git clone https://github.com/wangleo743-ops/androidworld-ondevice-agent.git
+cd androidworld-ondevice-agent
 python3 run.py init
 ```
+
+也可以在仓库首页选择 **Code → Download ZIP**，解压后进入包含 `run.py` 的文件夹，再执行 `python3 run.py init`。
 
 先编辑生成的 `config.local.json`，填好 SDK / JDK 路径、模型名和接口地址，保存后继续：
 
@@ -139,3 +145,9 @@ Java 检查及具体前提见 [安装说明](docs/SETUP.md#本地验证与发布
 | `docs/` | 安装、架构和结果解释 |
 
 仓库不包含 API Key、模型账号、个人路径配置、签名私钥、SDK 镜像或原始实验记录。第三方来源和原创代码的许可状态见 [许可说明](THIRD_PARTY_NOTICES.md)。
+
+## 日常维护
+
+直接修改对应目录中的源码或文档，并通过 Git 提交更改。提交前运行上面的本地检查，用 `git diff` 核对改动；个人配置、运行结果和构建产物由 `.gitignore` 排除。`.github/workflows/check.yml` 会在推送和 Pull Request 时执行源码检查、离线测试及 Android 构建，不调用真实模型或操作模拟器。
+
+需要另行分发源码压缩包时运行 `python3 scripts/package.py`，产物位于 `dist/`；文件校验清单 `SOURCE_MANIFEST.json` 在打包时生成，不作为日常维护文件提交。

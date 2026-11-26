@@ -1,0 +1,17 @@
+{
+  "responses_endpoint": "https://api.openai.com/v1/responses",
+  "model": "",
+  "effort": "default",
+  "allow_http": false,
+  "model_transport": "host_relay",
+  "android_sdk_root": "",
+  "java_home": "",
+  "compile_sdk": 35,
+  "build_tools_version": "35.0.0",
+  "avd_name": "AndroidWorldAvd",
+  "serial": "emulator-5554",
+  "console_port": 5554,
+  "grpc_port": 8554,
+  "seed": 30,
+  "timeout_seconds": 360
+}
